@@ -7,7 +7,7 @@ const PaymentSuccessPage = () => {
   const [txRef, setTxRef] = useState(null);
 
   useEffect(() => {
-    console.log("Location search:", location.search); 
+    console.log("Location search:", location.search); // Debugging log
 
     const params = new URLSearchParams(location.search);
     const tx_ref = params.get("tx_ref");
