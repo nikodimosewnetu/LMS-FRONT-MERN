@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
+// PaymentSuccessPage.js
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const PaymentSuccessPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [txRef, setTxRef] = useState(null);
 
   useEffect(() => {
-    console.log("Location search:", location.search); // Debugging log
-
     const params = new URLSearchParams(location.search);
     const tx_ref = params.get("tx_ref");
 
     if (tx_ref) {
-      setTxRef(tx_ref);
-      console.log("Transaction Reference:", tx_ref);
-    } else {
-      console.warn("Transaction Reference is missing!");
+      // You can now use tx_ref to verify the payment status or handle the order logic
+      console.log("Transaction Reference: ", tx_ref);
+      // Navigate to a relevant page after the payment confirmation
+      // Example: navigate("/course-dashboard");
     }
   }, [location]);
 
@@ -36,7 +34,7 @@ const PaymentSuccessPage = () => {
               clipRule="evenodd"
             />
           </svg>
-          <h2 className="text-3xl font-semibold text-gray-900">Payment Successful</h2>
+          <h2 className="text-3xl font-semibold">Payment Successful</h2>
         </div>
 
         <p className="text-lg text-gray-700 mb-4 text-center">
@@ -44,8 +42,7 @@ const PaymentSuccessPage = () => {
         </p>
 
         <p className="text-gray-600 mb-6 text-center">
-          Transaction Reference:{" "}
-          <span className="font-semibold text-gray-800">{txRef || "N/A"}</span>
+          Transaction Reference: <span className="font-semibold">{location.search.split("=")[1]}</span>
         </p>
 
         <div className="flex justify-center">
