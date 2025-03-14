@@ -1,9 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html",
-      "query": { "tx_ref": ":tx_ref" }
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
