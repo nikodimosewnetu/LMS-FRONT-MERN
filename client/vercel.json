@@ -1,5 +1,9 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/payment-success",
+      "destination": "/index.html",
+      "query": { "tx_ref": ":tx_ref" }
+    }
   ]
 }
